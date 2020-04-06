@@ -70,7 +70,6 @@ class PruebasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def prueba_params
-      params.fetch(:prueba, {})
-      params.require(:prueba).permit(:description)
+      params.fetch(:prueba,{}).permit(:nombre, :edad, :fechaNac)
     end
 end
