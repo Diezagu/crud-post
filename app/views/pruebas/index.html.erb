@@ -1,27 +1,25 @@
-<div class="columns is-desktop">
+<%= render 'navbar', prueba: @prueba %>
+<h1 class="title is-1 is-spaced level-item">Pruebas</h1>
+<div class="columns">
   <div class="column">
-    <%= render 'navbar', prueba: @prueba %>
-    <br>
-    <br>
-    <h1 class="title is-1 is-spaced  is-centered">Pruebas</h1>
-
-    <% @pruebas.each do |prueba| %>
-      <%= label 'Registro', prueba.nombre, class: 'title is-6' %>
-      <%= label 'Registro1', prueba.edad, class: 'title is-6' %>
-      <%= label 'Registro2', prueba.fechaNac, class: 'title is-6' %>
-      <%= link_to 'Mostrar', prueba, class: "button is-light" %>
-      <%= link_to 'Editar', edit_prueba_path(prueba), class: "button is-light" %>
-      <%= link_to 'Eliminar', prueba, method: :delete, data: { confirm: '¿Estas seguro?' }, class: "button is-light" %>
-      <hr>
-    <% end %>
-    <p id="notice"><%= notice %></p>
-
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p>
-          <strong>Pueba</strong> by <a>Diego Zaizar</a>. &copy; All Rights Reserved.
-        </p>
-      </div>
-    </footer>
+    <table class="table is-striped level-item">
+      <tr>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Fecha de nacimiento</th>
+      </tr>
+      <tr>
+        <% @pruebas.each do |prueba| %>
+          <tr>
+            <td><%= label 'Registro', prueba.nombre, class: 'title is-6' %></td>
+            <td><%= label 'Registro1', prueba.edad, class: 'title is-6' %></td>
+            <td><%= label 'Registro2', prueba.fechaNac, class: 'title is-6' %></td>
+            <td><%= link_to 'Editar', edit_prueba_path(prueba), class: "button is-light" %></td>
+            <td><%= link_to 'Eliminar', prueba, :confirm => 'Are you sure?', :method => :delete, class:"button is-light" %> </td>
+          </tr>
+        <% end %>
+      </tr>
+    </table>
   </div>
+
 </div>
