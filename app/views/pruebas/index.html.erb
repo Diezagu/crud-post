@@ -1,0 +1,25 @@
+<%= render 'navbar', prueba: @prueba %>
+<h1 class="title is-1 is-spaced level-item">Pruebas</h1>
+<div class="columns">
+  <div class="column">
+    <table class="table is-striped level-item">
+      <tr>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Fecha de nacimiento</th>
+      </tr>
+      <tr>
+        <% @pruebas.each do |prueba| %>
+          <tr>
+            <td><%= label 'Registro', prueba.nombre, class: 'title is-6' %></td>
+            <td><%= label 'Registro1', prueba.edad, class: 'title is-6' %></td>
+            <td><%= label 'Registro2', prueba.fechaNac, class: 'title is-6' %></td>
+            <td><%= link_to 'Editar', edit_prueba_path(prueba), class: "button is-light" %></td>
+            <td><%= link_to 'Eliminar', prueba, :confirm => 'Are you sure?', :method => :delete, class:"button is-light" %> </td>
+          </tr>
+        <% end %>
+      </tr>
+    </table>
+  </div>
+
+</div>
